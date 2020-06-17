@@ -1,6 +1,0 @@
-com\app\model\Contact$ContactBuilder.class
-com\app\model\Contact.class
-com\app\service\impl\ContactServiceImpl.class
-com\app\service\IContactService.class
-com\app\custom\exception\ContactNotFoundException.class
-com\app\dao\ContactDao.class
