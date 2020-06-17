@@ -3,12 +3,12 @@ package com.app.service.impl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.easymock.EasyMock;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.app.custom.exception.NoDataFoundException;
@@ -39,7 +39,7 @@ public class ContactServiceImplTest {
 		List<String> names = Arrays.asList("A","B","C","D","E");
 		
 		//Create Behaviour for findByContactNames method called by testGetAllContactNames_01 method
-		EasyMock.expect(contactDao.findByContactName()).andReturn(names).andThrow(new NoDataFoundException());
+		EasyMock.expect(contactDao.findByContactName()).andReturn(names).andReturn(new ArrayList<String>()).andThrow(new NoDataFoundException());
 
 		//Create Behaviour for findByContactNames method called by testGetAllContactNames_02 method
 		//EasyMock.expect(contactDao.findByContactName()).andReturn(null);
@@ -52,7 +52,7 @@ public class ContactServiceImplTest {
 	}
 	
 	@Test
-	@Ignore
+	//@Ignore
 	public void findContactById_01() {
 		Contact expectedContact = serviceImpl.findContactById(101);
 		
